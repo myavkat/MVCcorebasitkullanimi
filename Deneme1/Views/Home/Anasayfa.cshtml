@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int a = 0;
+}
+
+<form asp-controller="Home" asp-action="hesapla2">
+    <input type="text" name="ad" />
+    <input type="text" name="soyad" />
+    <button onclick="this.form.submit()">Gönder</button>
+</form>
+@foreach (Ogrenci ogrenci in (List<Ogrenci>)ViewBag.ogrencis)
+{
+    <div>Hoşgeldin @ogrenci.Ad @ogrenci.Soyad <form asp-controller="Home" asp-action="sil"><button value=@ogrenci.Id name="Id">SİL</button></form></div>
+}
